@@ -1,9 +1,12 @@
+import sys
 from typing import Literal
 
 import lightning as L
 import torch
 import yaml
 from box import Box
+
+sys.path.append("/Users/felix/Projects/geospatial_foundation_models/clay/model")
 
 from src.model import clay_mae_base, clay_mae_large, clay_mae_small, clay_mae_tiny
 
@@ -17,7 +20,10 @@ class ClayMAEModule(L.LightningModule):
         patch_size=8,
         shuffle=False,
         metadata_path="configs/metadata.yaml",
-        teacher="samvit_base_patch16.sa1b",
+        # teacher="samvit_base_patch16.sa1b",
+        # teacher="vit_large_patch14_reg4_dinov2.lvd142m",
+        teacher="vit_large_patch14_reg_dinov2.lvd142m",
+        # model = timm.create_model("hf_hub:timm/samvit_base_patch16.sa1b", pretrained=True)
         dolls=[16, 32, 64, 128, 256, 768],
         doll_weights=[1, 1, 1, 1, 1, 1],
         lr=1e-5,
