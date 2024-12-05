@@ -6,14 +6,15 @@ data:
   num_workers: 8
 model:
   num_classes: 10
-  ckpt_path: checkpoints/v1.5.0-no-mrl-dinov2/mae_v1.5.0_epoch-07_val-loss-0.1718.ckpt
+  # ckpt_path: checkpoints/v1.5.0-no-mrl-dinov2/mae_v1.5.0_epoch-07_val-loss-0.1718.ckpt
+  ckpt_path: checkpoints/v1.5/clay_v1.5.ckpt
   lr: 5e-5
   wd: 0.05
   b1: 0.9
   b2: 0.95
 trainer:
-  accelerator: auto
-  strategy: ddp
+  accelerator: mps
+  strategy: auto
   devices: auto
   num_nodes: 1
   precision: bf16-mixed
@@ -26,8 +27,8 @@ trainer:
   logger:
     - class_path: lightning.pytorch.loggers.WandbLogger
       init_args:
-        entity: developmentseed
-        project: clay-classify
+        entity: speckerf
+        project: clay
         group: v1.5-test
         log_model: false
   callbacks:

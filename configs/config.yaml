@@ -20,7 +20,7 @@ model:
   patch_size: 8
   shuffle: True
   metadata_path: configs/metadata.yaml
-  teacher: vit_large_patch14_reg4_dinov2.lvd142m
+  teacher: vit_large_patch14_reg_dinov2.lvd142m
   dolls: [16, 32, 64, 128, 256, 768, 1024]
   doll_weights: [1, 1, 1, 1, 1, 1, 1]
   lr: 5e-6

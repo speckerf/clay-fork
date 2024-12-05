@@ -10,6 +10,9 @@ References:
 - https://pytorch-lightning.medium.com/introducing-lightningcli-v2-supercharge-your-training-c070d43c7dd6
 """
 
+import sys
+
+sys.path.append("/Users/felix/Projects/geospatial_foundation_models/clay/model")
 from lightning.pytorch.cli import LightningCLI
 
 from finetune.classify.eurosat_datamodule import EuroSATDataModule  # noqa: F401
